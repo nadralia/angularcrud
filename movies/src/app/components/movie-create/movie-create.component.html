@@ -1,0 +1,46 @@
+<div style="width: 500px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="budget">Budget</label>
+          <input
+            type="text"
+            class="form-control"
+            id="budget"
+            required
+            [(ngModel)]="movie.budget"
+            name="budget"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="genres">Genres</label>
+          <input
+            class="form-control"
+            id="genres"
+            required
+            [(ngModel)]="movie.genres"
+            name="genres"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="homepage">Home Page</label>
+            <input
+              class="form-control"
+              id="homepage"
+              required
+              [(ngModel)]="movie.homepage"
+              name="homepage"
+            />
+        </div>
+  
+        <button (click)="createMovie()" class="btn btn-success">Create</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h3>You successfully created a movie!</h3>
+        <button class="btn btn-success" (click)="newMovie()">New..</button>
+      </div>
+    </div>
+  </div>
