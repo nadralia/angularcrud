@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from 'src/app/services/movie.service';
-
 @Component({
   selector: 'app-movie-create',
   templateUrl: './movie-create.component.html',

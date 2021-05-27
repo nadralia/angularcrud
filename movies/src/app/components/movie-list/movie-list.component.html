@@ -1,1 +1,71 @@
-<p>movie-list works!</p>
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by id"
+          [(ngModel)]="id"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="readById()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Movie List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let movie of movies; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setCurrentMovie(movie, i)"
+        >
+          
+        </li>
+      </ul>
+
+      
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentMovie">
+        <h4>Movie</h4>
+        <div>
+          <label><strong>Budget:</strong></label> 
+        </div>
+        <div>
+          <label><strong>Genres:</strong></label>
+  
+        </div>
+        <div>
+          <label><strong>Homepsge:</strong></label>
+  
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/movies/">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentMovie">
+        <br />
+        <p>Please click on a movie</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="list row">
+    <hot-table
+    [colHeaders]="true"
+    [rowHeaders]="true"
+    [data]="movies"></hot-table>
+  </div>
+
+
+

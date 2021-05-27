@@ -33,7 +33,7 @@ export class MovieService {
     return this.httpClient.delete(baseURL);
   }
 
-  searchByName(name: any): Observable<any> {
-    return this.httpClient.get(`${baseURL}?name=${name}`);
+  searchById(id: any): Observable<any> {
+    return this.httpClient.get(`${baseURL}?id=${id}`);
   }
 }
