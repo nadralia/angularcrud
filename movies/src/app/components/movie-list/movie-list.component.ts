@@ -8,10 +8,58 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MovieListComponent implements OnInit {
 
 
+
+
+
   movies: any;
   currentMovie = null;
   currentIndex = -1;
   id = '';
+
+  tableSettings: any = {
+    viewportColumnRenderingOffset: 27,
+    viewportRowRenderingOffset: "auto",
+    height: 450,
+    width: 924,
+    maxRows: 22,
+    manualRowResize: true,
+    manualColumnResize: true,
+     columns: [
+        {
+          data: 'id',
+          type: 'numeric',
+          width: 40
+        },
+        {
+          data: 'budget',
+          type: 'text'
+        },
+        
+        {
+          data: 'genres',
+          type: 'text'
+        },
+        {
+          data: 'homepage',
+          type: 'text'
+        },
+      ],
+    colHeaders: ["ID", "Budget", "Genres", "homepages"],
+    manualRowMove: true,
+    manualColumnMove: true,
+    contextMenu: true,
+    filters: true,
+    dropdownMenu: true,
+    afterValidate: function(isValid: any, value: boolean, row: any, prop: any){
+      if(value == false){
+        	console.log( value, row, prop)    
+          alert("Invalid")
+      }
+			
+    }
+  };
+
+  
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
@@ -64,6 +112,5 @@ export class MovieListComponent implements OnInit {
           console.log(error);
         });
   }
-
 
 }
