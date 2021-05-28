@@ -24,7 +24,7 @@ export class MovieListComponent implements OnInit {
     maxRows: 22,
     manualRowResize: true,
     manualColumnResize: true,
-     columns: [
+    columns: [
         {
           data: 'id',
           type: 'numeric',
@@ -43,7 +43,7 @@ export class MovieListComponent implements OnInit {
           data: 'homepage',
           type: 'text'
         },
-      ],
+    ],
     colHeaders: ["ID", "Budget", "Genres", "homepages"],
     manualRowMove: true,
     manualColumnMove: true,
